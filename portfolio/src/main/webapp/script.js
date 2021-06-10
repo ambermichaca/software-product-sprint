@@ -31,9 +31,23 @@ function addRandomGreeting() {
 async function fetchMessage() {
     //fetch info (response) from servlet 
     const responseFromServer = await fetch('/hello');
-    const textFromResponse = await responseFromServer.text();
+    const textFromResponse = await responseFromServer.json();
 
-    //add info to container spceified in the index.html
+ // UNABLE TO ACCESS MESSAGES: Hello!, Hola!, or Namaste! indivually. Only prints  
+ // as one string "Hello!,Hola!,Namaste!"
+ /////////////////////////////////////////////////////////////////////////////// 
+   // const messageToPrint= textFromResponse.get(0);
+   // const messageContainer = document.getElementById('message-container');
+   // messageContainer.innerText = messageToPrint;
+
+
+
+//CONSOLE.LOG DID NOT WORK. Nothing printed with these two lines of code  
+//////////////////////////////////////////////////////////////////////////////
+   // console.log(textFromResponse.phrases.get(0));
+   // console.log(textFromResponse); 
+    
+    //add json sting to the page. prints:  "Hello!,Hola!,Namaste!"
     const messageContainer = document.getElementById('message-container');
     messageContainer.innerText = textFromResponse;  
 }
