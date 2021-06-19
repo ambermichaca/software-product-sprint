@@ -37,3 +37,5 @@ async function fetchMessage() {
     const messageContainer = document.getElementById('message-container');
     messageContainer.innerText = textFromResponse[Math.floor(Math.random() * textFromResponse.length)];  
 }
+
+
